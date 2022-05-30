@@ -3,11 +3,14 @@ import './App.css';
 import {useState,useEffect} from 'react';
 function App() {
 const [quote,setQuote]=useState(0);
-useEffect(()=>{
-setInterval(()=>{
-setQuote(old=>old+1)
-},5000);
-},[])
+
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setQuote(old=>old+1)
+  }, 4000);
+  return () => clearInterval(interval);
+}, []);
 var quotes = [
   ["Stay Hungry. Stay Foolish.", "Steve Jobs"],
   ["Good Artists Copy, Great Artists Steal.", "Pablo Picasso"],
@@ -19,23 +22,20 @@ var quotes = [
     <div className="App">
       <div id="quote-box">
         <div id="text">
-          {quotes[quote%(quotes.length)][0]}
+          {`"${quotes[quote%(quotes.length)][0]}"`}
         </div>
-        <div id="author">
-
-        </div>
+        <div className="btns">
         <button id="new-quote" onClick={()=>{setQuote(Math.floor(Math.random() * quotes.length));}}>
-
+            new quote
         </button>
+        <p id="author">
+        {quotes[quote%(quotes.length)][1]}
+        </p>
+       
         <a id="tweet-quote">
 
         </a>
-        <p id="text">
-
-        </p>
-        <h1 id="author">
-        {quotes[quote%(quotes.length)][1]}
-        </h1>
+        </div>
       </div>
     </div>
   );

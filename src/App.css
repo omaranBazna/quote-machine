@@ -16,4 +16,21 @@
 #quote-box{
   padding:60px;
   background-color: rgba(200,0,0,0.4);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#text{
+  font-weight:600;
+}
+#new-quote{
+  padding:10px;
+
+}
+.btns{
+  padding:10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
