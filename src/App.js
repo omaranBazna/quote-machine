@@ -5,8 +5,8 @@ function App() {
 const [quote,setQuote]=useState(0);
 useEffect(()=>{
 setInterval(()=>{
-setQuote((old)=>{old+1})
-},1000);
+setQuote(old=>old+1)
+},5000);
 },[quote])
   const quotes=[
    "you are stupid",
@@ -22,7 +22,7 @@ setQuote((old)=>{old+1})
         <div id="author">
 
         </div>
-        <button id="new-quote">
+        <button id="new-quote" onClick={()=>{Math.floor(Math.random() * quotes.length);}}>
 
         </button>
         <a id="tweet-quote">
