@@ -39,8 +39,8 @@ const colors=[
         <button id="new-quote" onClick={()=>{setQuote(Math.floor(Math.random() * quotes.length));setBgColor(Math.floor(Math.random() *colors.length))}}>
             new quote
         </button>
-        <a id="tweet-quote">
-
+        <a id="tweet-quote" href={`https://twitter.com/intent/tweet?text="${quotes[quote%(quotes.length)][0].replace(' ',"%20")}"%20${quotes[quote%(quotes.length)][1].replace(' ',"%20")}`}>
+          Tweet the quote!!!
         </a>
         
       </div>
